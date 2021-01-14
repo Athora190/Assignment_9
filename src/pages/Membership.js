@@ -1,10 +1,13 @@
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Plan from './Plan' 
+import Plan from '../components/Plan' 
 import Grid from '@material-ui/core/Grid';
+import Hero from '../components/Hero'
 export default function Membership() {
         return (
+          <Box>
+            <Hero title="Membership" description="Plans"/>
           <Container maxWidth="lg">
             <Box >
               <Typography variant="h3" component="h3" gutterBottom>
@@ -17,6 +20,7 @@ export default function Membership() {
               </Grid>
             </Box>
           </Container>
+          </Box>
         );
       }
       
