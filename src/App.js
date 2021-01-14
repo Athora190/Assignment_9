@@ -7,7 +7,7 @@ import {
 
 import HomePage from './pages/Home'
 import Footer from './components/footer'
-
+import Membership from './pages/Membership'
 function App() {
   return (
     <Router>
@@ -25,7 +25,9 @@ function App() {
           <Route exact path="/">
             <HomePage/>
           </Route>
+          <Route path="/pricing"><Membership></Membership></Route>
         </Switch>
+        
 {/*         
         <Box mb={10}>
         </Box>
