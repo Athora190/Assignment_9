@@ -63,6 +63,7 @@ class ContactForm extends React.Component {
 
                 <div style={{marginRight:'20px'}}>
                 <TextField
+                    fullWidth
                     name="firstName"
                     onChange = {e =>this.state.firstName}
                     type ="text" 
@@ -115,14 +116,15 @@ class ContactForm extends React.Component {
 
                       <br />
 
-                    <TextField style={{marginLeft:'80px'}}
+                    <TextField
                     name="inquiry"
                     value ={this.state.Inquiry} 
                     onChange = {e =>this.state.Inquiry}
                     id="outlined-multiline-static"
                     label="How Can We Help You?"
                     multiline
-                    rows={6}
+                    rows={4}
+                    fullWidth
                     variant="outlined"
                     />
                  
