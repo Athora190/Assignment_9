@@ -1,40 +1,57 @@
-import { Box, Container } from '@material-ui/core'
-import ContactForm from './components/contactForm'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
 
-import Hero from './components/Hero'
-import Membership from './components/Membership'
-import Differences from './components/Differences'
+import HomePage from './pages/Home'
 import Footer from './components/footer'
-import Aboutus from './components/Aboutus'
 
 function App() {
   return (
-    <div className="App">
-      <Box mb={10}>
-        <Hero/>
-      </Box>
-      <Box mb={10}>
-        <Differences/>
-      </Box>
-      <Box mb={10} textAlign="center">
-        <Membership/>
-      </Box>
-      <Box mb={10} textAlign="center"> 
-      <Aboutus/>
-      </Box>
-      <Container>
-        <Box
-          display="flex"
-          flexDirection="row"
-          justifyContent="center"
-        >
-          <ContactForm/>
+    <Router>
+      <div className="App">
+        {/* TODO: Add navbar component */}
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/company">About the Company</Link></li>
+            <li><Link to="/pricing">Pricing</Link></li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route exact path="/">
+            <HomePage/>
+          </Route>
+        </Switch>
+{/*         
+        <Box mb={10}>
         </Box>
+        <Box mb={10}>
+          <Differences/>
+        </Box>
+        <Box mb={10} textAlign="center">
+          <Membership/>
+        </Box>
+        <Box mb={10} textAlign="center"> 
+        <Aboutus/>
+        </Box>
+        <Container>
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="center"
+          >
+            <ContactForm/>
+          </Box>
+          
+        </Container> */}
+        <Footer/>
         
-      </Container>
-      <Footer/>
-      
-    </div>
+      </div>
+    </Router>
   );
 }
 
