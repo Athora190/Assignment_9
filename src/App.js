@@ -8,6 +8,7 @@ import {
 import HomePage from './pages/Home'
 import Footer from './components/footer'
 import Membership from './pages/Membership'
+import Company from './pages/CompanyPage'
 function App() {
   return (
     <Router>
@@ -24,6 +25,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage/>
+          </Route>
+          <Route path ="/company">
+            <Company/>
           </Route>
           <Route path="/pricing"><Membership></Membership></Route>
         </Switch>
