@@ -4,8 +4,11 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import {validate_first_name, validate_last_name, validate_email, validate_phone_number, validate_inquiry} from './Validation';
+import Container from '@material-ui/core/Container';
+import Hero from '../../components/Hero'
+import Box from '@material-ui/core/Box'
 
-
+          
 
 class ContactForm extends React.Component {
     constructor(props){
@@ -25,9 +28,12 @@ class ContactForm extends React.Component {
 		             error: '',}, 
         inquiry:{
                      value: '',
-		             error: '',},
+                     error: '',},
+                     
     };    
     };
+
+   
 
     handleChange = event =>{
         this.setState(
@@ -40,7 +46,7 @@ class ContactForm extends React.Component {
 
         submitForm(event) {
 
-            event.preventDefault();
+        event.preventDefault();
 	
 	
 	const first_name_error = validate_first_name(this.state.firstName.value);
@@ -101,19 +107,41 @@ class ContactForm extends React.Component {
 	}
 
 	if(first_name_error || last_name_error || email_error || phone_number_error || inquiry_error ){
-	    // has at least 1 error
-	    // so quit
+	    
 	    return;
 	}
 	
-	// all error checks have been passed and have been found valid
-	// so proceed!
+
 
 
         alert("Your submission was successful")
+
+        this.setState ({  
+            firstName: {
+                         value: '',
+                         error: '',},
+            lastName:{
+                         value: '',
+                         error: '',}, 
+            email:{
+                         value: '',
+                         error: '',}, 
+            phone:{
+                         value: '',
+                         error: '',}, 
+            inquiry:{
+                         value: '',
+                         error: '',},
+                         
+        });    
+
+
         };
 
+
+    
     render() { 
+
 
         const mystyle = {
             
@@ -124,6 +152,10 @@ class ContactForm extends React.Component {
           
         return (  
 
+    <Box>
+    
+    <Hero title="Contact Us" description="Please tell us how we can help you!" />
+    <Container maxWidth="xs">
         <div style={{marginBottom:'20px'}}>
          <Grid container>
             <br/>
@@ -192,7 +224,7 @@ class ContactForm extends React.Component {
                     helperText={this.state.phone.error}
                     name="phone"
                     onChange = {(e) =>{this.handleChange(e)}}
-                    type ="text" 
+                    type ="number" 
                     value ={this.state.phone.value} 
                     id="standard-helperText"
                     label="Mobile Number" 
@@ -230,6 +262,8 @@ class ContactForm extends React.Component {
         </Grid>
 
         </div>
+        </Container>
+        </Box>
 
 
         );
