@@ -6,7 +6,7 @@ function validateFirstLastName(value){
     {
         return "invalid";
     }
-    if(value.length > 20)
+    if(value.length > 50)
     {
         return "that's a long name";
     }
@@ -25,5 +25,5 @@ function validateEmail(value){
        }
     
     return null
-
+    }
 export {validateEmail}
