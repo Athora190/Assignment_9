@@ -7,7 +7,9 @@ import {
   validateFirstLastName,
   validateEmail,
   validatePassword,
+  validateUsername,
 } from "./SignUpValidation";
+import { Container } from "@material-ui/core";
 
 class SignUpForm extends React.Component {
   constructor(props) {
@@ -90,7 +92,7 @@ class SignUpForm extends React.Component {
     );
     if (password_error) {
       this.setState({
-        inquiry: {
+        password: {
           value: this.state.password.value,
           error: password_error,
         },
@@ -100,9 +102,9 @@ class SignUpForm extends React.Component {
       this.state.password.value,
       this.state.password_conformation.value
     );
-    if (password_error) {
+    if (password_conformation_error) {
       this.setState({
-        inquiry: {
+        password_conformation: {
           value: this.state.password_conformation.value,
           error: password_conformation_error,
         },
@@ -119,7 +121,7 @@ class SignUpForm extends React.Component {
       return;
     }
     alert("Your submission was successful");
-    this.state = {
+    this.setState({
       firstName: {
         value: "",
         error: "",
@@ -144,8 +146,7 @@ class SignUpForm extends React.Component {
         value: "",
         error: "",
       },
-    };
-    //     };
+    });
   }
 
   render() {
@@ -156,7 +157,7 @@ class SignUpForm extends React.Component {
     };
 
     return (
-      <Grid container>
+      <Container maxWidth="xs" style={{marginTop:'10px'}}>
         <Typography
           style={{ marginLeft: "70px", color: "blue" }}
           variant="h3"
@@ -165,104 +166,113 @@ class SignUpForm extends React.Component {
         >
           Sign Up Form
         </Typography>
-
-        <form
-          onSubmit={(event) => {
-            this.submitForm(event);
-          }}
-        >
-          <Grid item md={6} style={{ marginRight: "20px" }}>
-            <TextField
-              error={this.state.firstName.error}
-              helperText={this.state.firstName.error}
-              name="firstName"
-              onChange={this.handleChange}
-              type="text"
-              value={this.state.firstName.value}
-              id="standard-helperText"
-              label="First Name"
-            />
-          </Grid>
-
-          <Grid item md={6}>
-            <TextField
-              error={this.state.lastName.error}
-              helperText={this.state.lastName.error}
-              name="lastName"
-              onChange={this.handleChange}
-              type="text"
-              value={this.state.lastName.value}
-              id="standard-helperText"
-              label="Last Name"
-            />
-          </Grid>
-
-          <Grid item xs={6} style={{ marginRight: "20px" }}>
-            <TextField
-              fullWidth
-              error={this.state.email.error}
-              helperText={this.state.email.error}
-              name="email"
-              onChange={this.handleChange}
-              type="text"
-              value={this.state.email.value}
-              id="standard-helperText"
-              label="Email"
-            />
-          </Grid>
-
-          <Grid>
-            <TextField
-              error={this.state.username.error}
-              helperText={this.state.username.error}
-              name="phone"
-              onChange={(e) => {
-                this.handleChange(e);
+        <Grid container>
+          <Grid item xs={12}>
+            <form
+              onSubmit={(event) => {
+                this.submitForm(event);
               }}
-              type="text"
-              value={this.state.username.value}
-              id="standard-helperText"
-              label="Username"
-            />
-          </Grid>
-          <Grid>
-            <TextField
-              name="password"
-              error={this.state.password.error}
-              helperText={this.state.password.error}
-              value={this.state.password.value}
-              onChange={this.handleChange}
-              id="outlined-multiline-static"
-              label="Password"
-              fullWidth
-              variant="outlined"
-            />
-          </Grid>
-          <Grid>
-            <TextField
-              name="password _conformation"
-              error={this.state.password.error}
-              helperText={this.state.password.error}
-              value={this.state.password.value}
-              onChange={this.handleChange}
-              id="outlined-multiline-static"
-              label="Password"
-              fullWidth
-              variant="outlined"
-            />
-          </Grid>
+            >
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  error={this.state.firstName.error}
+                  helperText={this.state.firstName.error}
+                  name="firstName"
+                  onChange={this.handleChange}
+                  type="text"
+                  value={this.state.firstName.value}
+                  id="standard-helperText"
+                  label="First Name"
+                />
+              </Grid>
 
-          <Button
-            style={{ marginLeft: "140px" }}
-            variant="contained"
-            type="submit"
-            onSubmit={(event) => this.submitForm(event)}
-            color="primary"
-          >
-            SIGN UP
-          </Button>
-        </form>
-      </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  error={this.state.lastName.error}
+                  helperText={this.state.lastName.error}
+                  name="lastName"
+                  onChange={this.handleChange}
+                  type="text"
+                  value={this.state.lastName.value}
+                  id="standard-helperText"
+                  label="Last Name"
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  error={this.state.email.error}
+                  helperText={this.state.email.error}
+                  name="email"
+                  onChange={this.handleChange}
+                  type="text"
+                  value={this.state.email.value}
+                  id="standard-helperText"
+                  label="Email"
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  error={this.state.username.error}
+                  helperText={this.state.username.error}
+                  name="username"
+                  onChange={(e) => {
+                    this.handleChange(e);
+                  }}
+                  type="text"
+                  value={this.state.username.value}
+                  id="standard-helperText"
+                  label="Username"
+                />
+              </Grid>
+              <br />
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  name="password"
+                  error={this.state.password.error}
+                  helperText={this.state.password.error}
+                  value={this.state.password.value}
+                  onChange={this.handleChange}
+                  id="outlined-multiline-static"
+                  label="Password"
+                  fullWidth
+                  variant="outlined"
+                />
+              </Grid>
+              <br />
+              <Grid item xs={12}>
+                <TextField
+                  name="password_conformation"
+                  error={this.state.password_conformation.error}
+                  helperText={this.state.password_conformation.error}
+                  value={this.state.password_conformation.value}
+                  onChange={this.handleChange}
+                  id="outlined-multiline-static"
+                  label="Confirm Password"
+                  fullWidth
+                  variant="outlined"
+                />
+              </Grid>
+              <br />
+              <Button
+                style={{ marginLeft: "140px" }}
+                variant="contained"
+                type="submit"
+                onSubmit={(event) => this.submitForm(event)}
+                color="primary"
+              >
+                SIGN UP
+              </Button>
+            </form>
+          </Grid>
+        </Grid>
+      </Container>
     );
   }
 }
