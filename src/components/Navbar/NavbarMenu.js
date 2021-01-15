@@ -6,8 +6,7 @@ import {
   IconButton,
   Drawer,
   List,
-  ListItem,
-  ListItemText
+  ListItem
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
