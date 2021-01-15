@@ -5,6 +5,8 @@ import {
   Link
 } from 'react-router-dom'
 
+import Navbar from './components/Navbar'
+
 import HomePage from './pages/Home'
 import Footer from './components/footer'
 import Membership from './pages/Membership'
@@ -14,14 +16,8 @@ function App() {
     <Router>
       <div className="App">
         {/* TODO: Add navbar component */}
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/company">About the Company</Link></li>
-            <li><Link to="/pricing">Pricing</Link></li>
-          </ul>
-        </nav>
-
+        <Navbar/>
+        
         <Switch>
           <Route exact path="/">
             <HomePage/>
