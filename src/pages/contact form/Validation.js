@@ -10,9 +10,7 @@ function validate_first_name(value){
 	return 'Cannot be more than 20 characters long'
     }
 
-    if(value.includes('1','2','3','4','5','6','7','8','9','0')  ){
-        return 'Cannot include a number'
-        }
+  
     
     return null;
 }
@@ -25,9 +23,9 @@ function validate_last_name(value){
 	return 'Cannot be more than 20 characters long'
     }
 
-    if(value.includes('1','2','3','4','5','6','7','8','9','0') ){
-        return 'Cannot include a number'
-        }
+    // if(!value.includes('1','2','3','4','5','6','7','8','9','0') ){
+    //     return 'Cannot include a number'
+    //     }
     
     return null;
 }
@@ -45,9 +43,10 @@ function validate_email(value){
 }
 
 function validate_phone_number(value){
-    if(value ===('')){
-	return 'This field needs an input';
-    }
+    let result = value.length > 0 ? "OK" : "ERROR";
+    if(result === "ERROR"){
+    return 'Empty Field';
+        }
 
     if(value.length < 7 ){
         return 'This number is too short';
@@ -56,10 +55,6 @@ function validate_phone_number(value){
         return 'This number is too long';
             } 
 
-    if(!value.includes('1','2','3','4','5','6','7','8','9','0') ){
-                return 'Invalid Number'
-    }
-    
     return null;
 }
 
@@ -67,7 +62,7 @@ function validate_inquiry(value){
 
     let result = value.length > 0 ? "OK" : "ERROR";
     if(result === "ERROR"){
-    return 'This field needs an input';
+    return 'Empty Field';
         }
         
 }

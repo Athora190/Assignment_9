@@ -46,7 +46,7 @@ class ContactForm extends React.Component {
 
         submitForm(event) {
 
-            event.preventDefault();
+        event.preventDefault();
 	
 	
 	const first_name_error = validate_first_name(this.state.firstName.value);
@@ -107,16 +107,35 @@ class ContactForm extends React.Component {
 	}
 
 	if(first_name_error || last_name_error || email_error || phone_number_error || inquiry_error ){
-	    // has at least 1 error
-	    // so quit
+	    
 	    return;
 	}
 	
-	// all error checks have been passed and have been found valid
-	// so proceed!
+
 
 
         alert("Your submission was successful")
+
+        this.setState ({  
+            firstName: {
+                         value: '',
+                         error: '',},
+            lastName:{
+                         value: '',
+                         error: '',}, 
+            email:{
+                         value: '',
+                         error: '',}, 
+            phone:{
+                         value: '',
+                         error: '',}, 
+            inquiry:{
+                         value: '',
+                         error: '',},
+                         
+        });    
+
+
         };
 
 
