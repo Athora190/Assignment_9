@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import {validate_first_name, validate_last_name, validate_email, validate_phone_number, validate_inquiry} from './Validation';
 import Container from '@material-ui/core/Container';
-import Hero from '../components/Hero'
+import Hero from '../../components/Hero'
 import Box from '@material-ui/core/Box'
 
           

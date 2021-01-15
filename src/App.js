@@ -10,8 +10,8 @@ import HomePage from './pages/Home'
 import Footer from './components/footer'
 import Membership from './pages/Membership'
 import Company from './pages/CompanyPage'
-import ContactForm from './pages/contactForm'
 import AboutPage from './pages/About'
+import ContactForm from './pages/contact form/contactForm'
 
 function App() {
   return (
