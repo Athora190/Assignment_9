@@ -10,7 +10,7 @@ export default function Membership() {
             <Hero title="Membership" description="Plans"/>
           <Container maxWidth="lg">
             <Box >
-              <Typography variant="h3" component="h3" gutterBottom>
+              <Typography align="center" variant="h3" component="h3" gutterBottom>
                 Membership
               </Typography>
               <Grid container spacing={3}>

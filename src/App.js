@@ -10,6 +10,7 @@ import HomePage from './pages/Home'
 import Footer from './components/footer'
 import Membership from './pages/Membership'
 import Company from './pages/CompanyPage'
+import ContactForm from './pages/contactForm'
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
             <Company/>
           </Route>
           <Route path="/pricing"><Membership/></Route>
+          <Route path="/contact"><ContactForm /></Route>
         </Switch>
         
 {/*         
