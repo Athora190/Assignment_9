@@ -2,10 +2,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from 'react-router-dom'
 
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar/index'
 
 import HomePage from './pages/Home'
 import Footer from './components/footer'
@@ -17,7 +16,7 @@ function App() {
       <div className="App">
         {/* TODO: Add navbar component */}
         <Navbar/>
-        
+
         <Switch>
           <Route exact path="/">
             <HomePage/>
@@ -25,7 +24,7 @@ function App() {
           <Route path ="/company">
             <Company/>
           </Route>
-          <Route path="/pricing"><Membership></Membership></Route>
+          <Route path="/pricing"><Membership/></Route>
         </Switch>
         
 {/*         
