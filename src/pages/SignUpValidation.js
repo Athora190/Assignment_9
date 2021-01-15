@@ -4,5 +4,5 @@ function validateEmail(value){
        }
     
     return null
-}
+
 export {validateEmail}
