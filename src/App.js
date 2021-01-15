@@ -10,7 +10,9 @@ import HomePage from './pages/Home'
 import Footer from './components/footer'
 import Membership from './pages/Membership'
 import Company from './pages/CompanyPage'
+import AboutPage from './pages/About'
 import ContactForm from './pages/contact form/contactForm'
+
 function App() {
   return (
     <Router>
@@ -27,32 +29,10 @@ function App() {
           </Route>
           <Route path="/pricing"><Membership/></Route>
           <Route path="/contact"><ContactForm /></Route>
+          <Route path="/about-us"><AboutPage/></Route>
         </Switch>
-        
-{/*         
-        <Box mb={10}>
-        </Box>
-        <Box mb={10}>
-          <Differences/>
-        </Box>
-        <Box mb={10} textAlign="center">
-          <Membership/>
-        </Box>
-        <Box mb={10} textAlign="center"> 
-        <Aboutus/>
-        </Box>
-        <Container>
-          <Box
-            display="flex"
-            flexDirection="row"
-            justifyContent="center"
-          >
-            <ContactForm/>
-          </Box>
-          
-        </Container> */}
+
         <Footer/>
-        
       </div>
     </Router>
   );
