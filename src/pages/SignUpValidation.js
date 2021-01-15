@@ -1,5 +1,6 @@
 
 
+
 function validateFirstLastName(value){
     if(value.length < 2 )
     {
@@ -17,3 +18,12 @@ function validateFirstLastName(value){
 
 }
 export {validateFirstLastName};
+
+function validateEmail(value){
+    if(!value.includes("@")|| !value.includes(".")){
+        return "Invalid Email";
+       }
+    
+    return null
+
+export {validateEmail}
