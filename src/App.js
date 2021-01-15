@@ -1,38 +1,44 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Navbar from './components/Navbar/index'
+import Navbar from "./components/Navbar/index";
 
-import HomePage from './pages/Home'
-import Footer from './components/footer'
-import Membership from './pages/Membership'
-import Company from './pages/CompanyPage'
-import AboutPage from './pages/About'
-import ContactForm from './pages/contact form/contactForm'
+import HomePage from "./pages/Home";
+import Footer from "./components/footer";
+import Membership from "./pages/Membership";
+import Company from "./pages/CompanyPage";
+import AboutPage from "./pages/About";
+import ContactForm from "./pages/contact form/contactForm";
+import SignUpForm from "./pages/SignUp";
 
 function App() {
   return (
     <Router>
       <div className="App">
         {/* TODO: Add navbar component */}
-        <Navbar/>
+        <Navbar />
 
         <Switch>
           <Route exact path="/">
-            <HomePage/>
+            <HomePage />
           </Route>
-          <Route path ="/company">
-            <Company/>
+          <Route path="/company">
+            <Company />
           </Route>
-          <Route path="/pricing"><Membership/></Route>
-          <Route path="/contact"><ContactForm /></Route>
-          <Route path="/about-us"><AboutPage/></Route>
+          <Route path="/pricing">
+            <Membership />
+          </Route>
+          <Route path="/contact">
+            <ContactForm />
+          </Route>
+          <Route path="/about-us">
+            <AboutPage />
+          </Route>
+          <Route path="/sign-up">
+            <SignUpForm />
+          </Route>
         </Switch>
 
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   );

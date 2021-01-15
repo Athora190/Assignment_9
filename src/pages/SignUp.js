@@ -3,6 +3,11 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import {
+  validateFirstLastName,
+  validateEmail,
+  validatePassword,
+} from "./SignUpValidation";
 
 class SignUpForm extends React.Component {
   constructor(props) {
@@ -43,7 +48,7 @@ class SignUpForm extends React.Component {
 
   submitForm(event) {
     event.preventDefault();
-    const first_name_error = validateFirstName(this.state.firstName.value);
+    const first_name_error = validateFirstLastName(this.state.firstName.value);
     if (first_name_error) {
       this.setState({
         firstName: {
@@ -52,7 +57,7 @@ class SignUpForm extends React.Component {
         },
       });
     }
-    const last_name_error = validateLastname(this.state.lastName.value);
+    const last_name_error = validateFirstLastName(this.state.lastName.value);
     if (last_name_error) {
       this.setState({
         lastName: {
@@ -79,7 +84,10 @@ class SignUpForm extends React.Component {
         },
       });
     }
-    const password_error = validatePassword(this.state.password.value);
+    const password_error = validatePassword(
+      this.state.password.value,
+      this.state.password_conformation.value
+    );
     if (password_error) {
       this.setState({
         inquiry: {
@@ -89,6 +97,7 @@ class SignUpForm extends React.Component {
       });
     }
     const password_conformation_error = validatePassword(
+      this.state.password.value,
       this.state.password_conformation.value
     );
     if (password_error) {
@@ -147,7 +156,7 @@ class SignUpForm extends React.Component {
     };
 
     return (
-      <Grid>
+      <Grid container>
         <Typography
           style={{ marginLeft: "70px", color: "blue" }}
           variant="h3"
@@ -247,13 +256,14 @@ class SignUpForm extends React.Component {
             style={{ marginLeft: "140px" }}
             variant="contained"
             type="submit"
-            onSubmit={(event) => this.submitForm()}
+            onSubmit={(event) => this.submitForm(event)}
             color="primary"
           >
-            SUBMIT
+            SIGN UP
           </Button>
         </form>
       </Grid>
     );
   }
 }
+export default SignUpForm;
