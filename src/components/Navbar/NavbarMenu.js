@@ -34,12 +34,12 @@ const useStyles = makeStyles(theme => ({
     color: '#fff'
   },
   desktopMenu: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'none'
     }
   },
   mobileMenu: {
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('lg')]: {
       display: 'none'
     }
   },
