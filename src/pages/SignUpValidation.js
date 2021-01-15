@@ -17,7 +17,6 @@ function validateFirstLastName(value){
     return null;
 
 }
-export {validateFirstLastName};
 
 function validateEmail(value){
     if(!value.includes("@")|| !value.includes(".")){
@@ -26,4 +25,26 @@ function validateEmail(value){
     
     return null
     }
-export {validateEmail}
+
+function validatePassword (password, confirmationPassword) {
+    if (password.length < 5) {
+        return 'Password must be at least 5 characters'
+    }
+
+    if (!/\d/g.test(password)) {
+        return 'Password must contain at least 1 number'
+    }
+
+    const specialCharacterRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g
+    if (!specialCharacterRegex.test(password)) {
+        return 'Password must contain at least 1 special character'
+    }
+
+    if (password !== confirmationPassword) {
+        return 'Passwords must match'
+    }
+
+    return null
+}
+
+export {validateFirstLastName, validateEmail, validatePassword}
