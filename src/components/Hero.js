@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
   heroContainer: {
-    position: 'relative'
+    position: 'relative',
+    marginBottom: 20
   },
   heroText: {
     color: 'white',
