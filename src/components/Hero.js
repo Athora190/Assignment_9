@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
   heroContainer: {
-    position: 'relative'
+    position: 'relative',
+    marginBottom: 20
   },
   heroText: {
     color: 'white',
@@ -30,13 +31,13 @@ const useStyles = makeStyles({
   }
 })
 
-export default function Hero() {
+export default function Hero(props) {
   const classes = useStyles()
   return (
     <Container
       maxWidth={false}
       style={{
-        backgroundImage: 'url(/assets/images/hero-bg.jpg)',
+        backgroundImage: `url(${props.image || '/assets/images/hero-bg.jpg'})`,
         backgroundPosition: '80% center',
         minHeight: 400,
       }}
@@ -49,7 +50,7 @@ export default function Hero() {
             variant='h2'
             gutterBottom
           >
-            FoxFiles
+            {props.title || 'FoxFiles'}
           </Typography>
         </Fade>
         <Fade in={true} timeout={1500}>
@@ -57,10 +58,8 @@ export default function Hero() {
               variant='body1'
               gutterBottom
               className={`${classes.heroText} ${classes.heroSubtitle}`}
-              
             >
-              We provide you with state of the art self-hosted file server software.
-              Enter in the new privacy age.
+              { props.description || 'We provide you with state of the art self-hosted file server software. Enter in the new privacy age.' }
             </Typography>
         </Fade>
       </Box>

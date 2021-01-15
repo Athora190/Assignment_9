@@ -1,40 +1,58 @@
-import { Box, Container } from '@material-ui/core'
-import ContactForm from './components/contactForm'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom'
 
-import Hero from './components/Hero'
-import Membership from './components/Membership'
-import Differences from './components/Differences'
+import Navbar from './components/Navbar/index'
+
+import HomePage from './pages/Home'
 import Footer from './components/footer'
-import Aboutus from './components/Aboutus'
-
+import Membership from './pages/Membership'
+import Company from './pages/CompanyPage'
 function App() {
   return (
-    <div className="App">
-      <Box mb={10}>
-        <Hero/>
-      </Box>
-      <Box mb={10}>
-        <Differences/>
-      </Box>
-      <Box mb={10} textAlign="center">
-        <Membership/>
-      </Box>
-      <Box mb={10} textAlign="center"> 
-      <Aboutus/>
-      </Box>
-      <Container>
-        <Box
-          display="flex"
-          flexDirection="row"
-          justifyContent="center"
-        >
-          <ContactForm/>
-        </Box>
+    <Router>
+      <div className="App">
+        {/* TODO: Add navbar component */}
+        <Navbar/>
+
+        <Switch>
+          <Route exact path="/">
+            <HomePage/>
+          </Route>
+          <Route path ="/company">
+            <Company/>
+          </Route>
+          <Route path="/pricing"><Membership/></Route>
+        </Switch>
         
-      </Container>
-      <Footer/>
-      
-    </div>
+{/*         
+        <Box mb={10}>
+        </Box>
+        <Box mb={10}>
+          <Differences/>
+        </Box>
+        <Box mb={10} textAlign="center">
+          <Membership/>
+        </Box>
+        <Box mb={10} textAlign="center"> 
+        <Aboutus/>
+        </Box>
+        <Container>
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="center"
+          >
+            <ContactForm/>
+          </Box>
+          
+        </Container> */}
+        <Footer/>
+        
+      </div>
+    </Router>
   );
 }
 
